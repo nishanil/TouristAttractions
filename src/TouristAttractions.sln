@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToursitAttractions.Droid.Shared", "ToursitAttractions.Droid.Shared\ToursitAttractions.Droid.Shared.csproj", "{B887498B-E16F-4734-8D67-3CD26341B0CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TouristAttractions.Droid", "TouristAttractions.Droid\TouristAttractions.Droid.csproj", "{F62CCEFF-982A-44B0-8C06-86FB546F5650}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B887498B-E16F-4734-8D67-3CD26341B0CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B887498B-E16F-4734-8D67-3CD26341B0CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B887498B-E16F-4734-8D67-3CD26341B0CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B887498B-E16F-4734-8D67-3CD26341B0CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F62CCEFF-982A-44B0-8C06-86FB546F5650}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F62CCEFF-982A-44B0-8C06-86FB546F5650}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F62CCEFF-982A-44B0-8C06-86FB546F5650}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F62CCEFF-982A-44B0-8C06-86FB546F5650}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
