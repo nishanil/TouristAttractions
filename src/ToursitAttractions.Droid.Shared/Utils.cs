@@ -3,6 +3,7 @@ using Android;
 using Android.Content;
 using Android.Content.PM;
 using Android.Gms.Maps.Model;
+using Android.Preferences;
 using Android.Support.V4.Content;
 using Java.Text;
 
@@ -14,6 +15,8 @@ namespace ToursitAttractions.Droid.Shared
 
 		private static readonly string DISTANCE_KM_POSTFIX = "km";
 		private static readonly string DISTANCE_M_POSTFIX = "m";
+		private static readonly string preferencesLat = "lat";
+		private static readonly String preferencesLang = "lng";
 		
 		/// <summary>
 		/// Check if the app has access to fine location permission. On pre-M devices this will always return true.
@@ -27,11 +30,54 @@ namespace ToursitAttractions.Droid.Shared
 
 		}
 
-		/**
-     * Calculate distance between two LatLng points and format it nicely for
-     * display. As this is a sample, it only statically supports metric units.
-     * A production app should check locale and support the correct units.
-     */
+		/// <summary>
+		/// Store the location in the app preferences.
+		/// </summary>
+		/// <returns>The location.</returns>
+		/// <param name="context">Context.</param>
+		/// <param name="location">Location.</param>
+		public static void StoreLocation(Context context, LatLng location)
+		{
+			var prefs = PreferenceManager.GetDefaultSharedPreferences(context);
+			ISharedPreferencesEditor editor = prefs.Edit();
+			editor.PutLong(preferencesLat, Java.Lang.Double.DoubleToRawLongBits(location.Latitude));
+			editor.PutLong(preferencesLang, Java.Lang.Double.DoubleToRawLongBits(location.Longitude));
+			editor.Apply();
+		}
+
+		/// <summary>
+		/// Fetch the location from app preferences.
+		/// </summary>
+		/// <returns>The location.</returns>
+		/// <param name="context">Context.</param>
+		public static LatLng GetLocation(Context context)
+		{
+			if (!CheckFineLocationPermission(context))
+			{
+				return null;
+			}
+
+			var prefs = PreferenceManager.GetDefaultSharedPreferences(context);
+			var lat = prefs.GetLong(preferencesLat, long.MaxValue);
+			var lng = prefs.GetLong(preferencesLang, long.MaxValue);
+			if (lat != long.MaxValue && lng != long.MaxValue)
+			{
+				var latDbl = Java.Lang.Double.LongBitsToDouble(lat);
+				var lngDbl = Java.Lang.Double.LongBitsToDouble(lng);
+				return new LatLng(latDbl, lngDbl);
+			}
+			return null;
+		}
+
+
+		/// <summary>
+		/// Calculate distance between two LatLng points and format it nicely for  display.
+		/// As this is a sample, it only statically supports metric units. 
+		/// A production app should check locale and support the correct units.
+		/// </summary>
+		/// <returns>The <see cref="T:System.String"/>.</returns>
+		/// <param name="point1">Point1.</param>
+		/// <param name="point2">Point2.</param>
 		public static string FormatDistanceBetween(LatLng point1, LatLng point2)
 		{
 			if (point1 == null || point2 == null)

@@ -24,19 +24,24 @@ namespace TouristAttractions
 
 			if (savedInstanceState == null)
 			{
-				//TODO: 
-			//	SupportFragmentManager
-			//		.BeginTransaction().Add(Resource.Id.container, new object()).Commit();
+				SupportFragmentManager
+					.BeginTransaction().Add(Resource.Id.container, new AttractionListFragment()).Commit();
 			}
 
-			if (Utils.CheckFineLocationPermission(this)) {
-				if (ActivityCompat.ShouldShowRequestPermissionRationale(this, Manifest.Permission.AccessFineLocation)){
+			if (!Utils.CheckFineLocationPermission(this))
+			{
+				if (ActivityCompat.ShouldShowRequestPermissionRationale(this, Manifest.Permission.AccessFineLocation))
+				{
 					ShowPermissionSnackbar();
 				}
 				else {
 					if (savedInstanceState == null)
 						RequestFineLocationPermission();
 				}
+			}
+			else{
+				// Otherwise permission is granted (which is always the case on pre-M devices)
+				FineLocationPermissionGranted();
 			}
 		}
 
@@ -119,7 +124,7 @@ namespace TouristAttractions
 		/// <returns>The debug dialog.</returns>
 		/// <param name="titleResId">Title res identifier.</param>
 		/// <param name="bodyResId">Body res identifier.</param>
-		private void showDebugDialog(int titleResId, int bodyResId)
+		private void ShowDebugDialog(int titleResId, int bodyResId)
 		{
 			Android.Support.V7.App.AlertDialog.Builder builder = new Android.Support.V7.App.AlertDialog.Builder(this)
 					.SetTitle(titleResId)

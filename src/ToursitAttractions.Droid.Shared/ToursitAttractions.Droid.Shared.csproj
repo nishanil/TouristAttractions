@@ -60,6 +60,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils.cs" />
     <Compile Include="Models\Attraction.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="TouristAttractions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -71,6 +73,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Xamarin.Android.Maps.Utils\GoogleMapsUtilityBinding.csproj">
+      <Project>{BC829F65-B3B0-43C3-A282-FD5497656434}</Project>
+      <Name>GoogleMapsUtilityBinding</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

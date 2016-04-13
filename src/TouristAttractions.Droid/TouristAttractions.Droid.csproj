@@ -74,6 +74,9 @@
     <Reference Include="Xamarin.GooglePlayServices.Location">
       <HintPath>..\packages\Xamarin.GooglePlayServices.Location.29.0.0.1\lib\MonoAndroid41\Xamarin.GooglePlayServices.Location.dll</HintPath>
     </Reference>
+    <Reference Include="UrlImageViewHelper">
+      <HintPath>..\Components\urlimageviewhelper-1.0.4.1\lib\android\UrlImageViewHelper.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AttractionListActivity.cs" />
@@ -81,6 +84,7 @@
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Services\UtilityService.cs" />
     <Compile Include="AttractionListFragment.cs" />
+    <Compile Include="AttractionsRecyclerView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
@@ -139,9 +143,19 @@
       <Project>{B887498B-E16F-4734-8D67-3CD26341B0CA}</Project>
       <Name>ToursitAttractions.Droid.Shared</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Xamarin.Android.Maps.Utils\GoogleMapsUtilityBinding.csproj">
+      <Project>{BC829F65-B3B0-43C3-A282-FD5497656434}</Project>
+      <Name>GoogleMapsUtilityBinding</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <XamarinComponentReference Include="urlimageviewhelper">
+      <Version>1.0.4.1</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Android.Support.Vector.Drawable.23.2.1\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Vector.Drawable.23.2.1\build\Xamarin.Android.Support.Vector.Drawable.targets')" />

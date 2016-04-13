@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToursitAttractions.Droid.Sh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TouristAttractions.Droid", "TouristAttractions.Droid\TouristAttractions.Droid.csproj", "{F62CCEFF-982A-44B0-8C06-86FB546F5650}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoogleMapsUtilityBinding", "Xamarin.Android.Maps.Utils\GoogleMapsUtilityBinding.csproj", "{BC829F65-B3B0-43C3-A282-FD5497656434}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,5 +21,9 @@ Global
 		{F62CCEFF-982A-44B0-8C06-86FB546F5650}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F62CCEFF-982A-44B0-8C06-86FB546F5650}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F62CCEFF-982A-44B0-8C06-86FB546F5650}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC829F65-B3B0-43C3-A282-FD5497656434}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC829F65-B3B0-43C3-A282-FD5497656434}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC829F65-B3B0-43C3-A282-FD5497656434}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC829F65-B3B0-43C3-A282-FD5497656434}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
