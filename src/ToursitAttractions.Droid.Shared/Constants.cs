@@ -49,7 +49,7 @@ namespace ToursitAttractions.Droid.Shared
 		public static readonly string CLEAR_NOTIFICATIONS_PATH = "/clear";
 
 		// Maps values
-		public static readonly string MAPS_INTENT_URI = "geo:0,0?q=";
+		public static readonly string MapsIntentUri = "geo:0,0?q=";
 		public static readonly string MAPS_NAVIGATION_INTENT_URI = "google.navigation:mode=w&q=";
 	}
 }

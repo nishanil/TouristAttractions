@@ -85,6 +85,8 @@
     <Compile Include="Services\UtilityService.cs" />
     <Compile Include="AttractionListFragment.cs" />
     <Compile Include="AttractionsRecyclerView.cs" />
+    <Compile Include="DetailActivity.cs" />
+    <Compile Include="DetailFragment.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />

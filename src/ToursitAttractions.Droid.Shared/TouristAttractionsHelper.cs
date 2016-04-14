@@ -4,7 +4,7 @@ using Android.Gms.Location;
 using Android.Gms.Maps.Model;
 using Com.Google.Maps.Android;
 
-namespace ToursitAttractions.Droid.Shared
+namespace ToursitAttractions
 {
 	public static class TouristAttractionsHelper
 	{

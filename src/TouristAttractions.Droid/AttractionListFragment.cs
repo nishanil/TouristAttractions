@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Android.App;
 using Android.Content;
 using Android.Content.Res;
 using Android.Gms.Maps.Model;
@@ -10,16 +11,16 @@ using Android.Widget;
 using Com.Google.Maps.Android;
 using ToursitAttractions;
 using ToursitAttractions.Droid.Shared;
-using static ToursitAttractions.Droid.Shared.TouristAttractionsHelper;
+using static ToursitAttractions.TouristAttractionsHelper;
 
 namespace TouristAttractions
 {
-	public class AttractionListFragment : Fragment
+	public class AttractionListFragment : Android.Support.V4.App.Fragment
 	{
 		private AttractionAdapter adapter;
 		private LatLng latestLocation;
 		private int imageSize;
-		private bool itemClicked;
+		public static bool IsItemClicked;
 
 
 		public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Android.OS.Bundle savedInstanceState)
@@ -44,6 +45,7 @@ namespace TouristAttractions
 		public override void OnResume()
 		{
 			//TODO:
+			IsItemClicked = false;
 			base.OnResume();
 
 
@@ -129,7 +131,6 @@ namespace TouristAttractions
 			var viewHolder = holder as AttractionViewHolder;
 			viewHolder.TitleTextView.Text = attraction.Name;
 			viewHolder.DescriptionTextView.Text = attraction.Description;
-			//SetImageURI(Android.Net.Uri.Parse(attraction.ImageUrl.AbsoluteUri));
 			Koush.UrlImageViewHelper.SetUrlDrawable(viewHolder.ImageView, attraction.ImageUrl.AbsoluteUri);
 			//TODO: Glide
 			//	Glide.with(mContext)
@@ -155,10 +156,16 @@ namespace TouristAttractions
 			return new AttractionViewHolder(view, OnItemClick);
 		}
 
-		public void OnItemClick(int position)
+
+		public void OnItemClick(int position, View view)
 		{
-			//TODO:
-			throw new NotImplementedException();
+			if (!AttractionListFragment.IsItemClicked)
+			{
+				AttractionListFragment.IsItemClicked = true;
+				var heroView = view.FindViewById(Android.Resource.Id.Icon);
+				DetailActivity.Launch(
+					(Activity)context, attractions[position].Name, heroView);
+			}
 		}
 	}
 
@@ -223,14 +230,14 @@ namespace TouristAttractions
 			}
 		}
 
-		public AttractionViewHolder(View view, Action<int> listener) : base(view)
+		public AttractionViewHolder(View view, Action<int, View> listener) : base(view)
 		{
 
 			TitleTextView = view.FindViewById<TextView>(Android.Resource.Id.Text1);
 			DescriptionTextView = view.FindViewById<TextView>(Android.Resource.Id.Text2);
 			OverlayTextView = view.FindViewById<TextView>(Resource.Id.overlaytext); ;
 			ImageView = view.FindViewById<ImageView>(Android.Resource.Id.Icon);
-			view.Click +=  (sender, e) => listener(base.AdapterPosition);
+			view.Click +=  (sender, e) => listener(base.AdapterPosition, view);
 		}
 
 	}

@@ -61,7 +61,7 @@
     <Compile Include="Utils.cs" />
     <Compile Include="Models\Attraction.cs" />
     <Compile Include="Constants.cs" />
-    <Compile Include="TouristAttractions.cs" />
+    <Compile Include="TouristAttractionsHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
