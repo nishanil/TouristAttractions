@@ -17,7 +17,7 @@ namespace ToursitAttractions.Droid.Shared
 		private static readonly string DISTANCE_M_POSTFIX = "m";
 		private static readonly string preferencesLat = "lat";
 		private static readonly String preferencesLang = "lng";
-		
+
 		/// <summary>
 		/// Check if the app has access to fine location permission. On pre-M devices this will always return true.
 		/// </summary>
@@ -25,9 +25,9 @@ namespace ToursitAttractions.Droid.Shared
 		/// <param name="context">Context.</param>
 		public static bool CheckFineLocationPermission(Context context)
 		{
-			const string permission = Manifest.Permission.AccessFineLocation;
-			return (ContextCompat.CheckSelfPermission(context, permission) == (int)Permission.Granted);
-
+			const string permissionStr = Manifest.Permission.AccessFineLocation;
+			var permission = ContextCompat.CheckSelfPermission(context, permissionStr);
+			return (permission == Permission.Granted);
 		}
 
 		/// <summary>

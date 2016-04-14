@@ -37,6 +37,7 @@ namespace TouristAttractions
 		public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 		{
 			HasOptionsMenu = true;
+
 			var view = inflater.Inflate(Resource.Layout.fragment_detail, container, false);
 			var attractionName = Arguments.GetString(ExtraAttraction);
 			attraction = FindAttraction(attractionName);

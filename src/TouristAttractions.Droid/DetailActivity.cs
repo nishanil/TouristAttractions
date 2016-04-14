@@ -15,7 +15,7 @@ using Android.Widget;
 
 namespace TouristAttractions
 {
-	[Activity(Label = "")]
+	[Activity(Label="", Theme = "@style/XYZAppTheme.Detail", ParentActivity=typeof(AttractionListActivity))]
 	public class DetailActivity : AppCompatActivity
 	{
 		private static readonly string EXTRA_ATTRACTION = "attraction";

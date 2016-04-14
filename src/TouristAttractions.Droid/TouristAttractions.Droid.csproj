@@ -35,6 +35,7 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+    <AndroidSupportedAbis>x86;armeabi-v7a</AndroidSupportedAbis>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -87,6 +88,7 @@
     <Compile Include="AttractionsRecyclerView.cs" />
     <Compile Include="DetailActivity.cs" />
     <Compile Include="DetailFragment.cs" />
+    <Compile Include="ScaleTransition.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
