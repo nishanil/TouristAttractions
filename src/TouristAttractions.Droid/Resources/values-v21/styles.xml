@@ -23,7 +23,7 @@
 		
       <item name="android:windowExitTransition">@transition/fade</item>
         <item name="android:windowReenterTransition">@transition/fade</item>
-       <item name="android:windowEnterTransition">@transition/window_enter</item>
+        <item name="android:windowEnterTransition">@transition/window_enter</item>
         <item name="android:windowReturnTransition">@transition/window_return</item>
         <item name="android:windowSharedElementEnterTransition">@transition/shared_move</item>
         <item name="android:windowSharedElementExitTransition">@transition/shared_move</item>

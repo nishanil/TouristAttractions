@@ -63,7 +63,7 @@ namespace TouristAttractions
 		public static void RequestLocation(Context context)
 		{
 			var intent = new Intent(context, typeof(UtilityService));
-			intent.SetAction(actionLocationUpdated);
+			intent.SetAction(actionRequestLocation);
 			context.StartService(intent);
 		}
 
@@ -85,12 +85,47 @@ namespace TouristAttractions
 
 		protected override void OnHandleIntent(Intent intent)
 		{
-			throw new NotImplementedException();
+			var action = intent != null ? intent.Action : null;
+			if (action == actionAddGeoFences)
+			{
+				AddGeofencesInternal();
+			}
+			else if (action == ActionGeofenceTriggered)
+			{
+				GeofenceTriggered(intent);
+			}
+			else if (action == actionRequestLocation)
+			{
+				RequestLocationInternal();
+			}
+			else if (action == actionLocationUpdated)
+			{
+				LocationUpdated(intent);
+			}
+			else if (action == actionClearNotification)
+			{
+				ClearNotificationInternal();
+			}
+			else if (action == actionClearRemoteNotifications)
+			{
+				ClearRemoteNotifications();
+			}
+			else if (action == actionFakeUpdate)
+			{
+				var currentLocation = Utils.GetLocation(this);
+
+				// If location unknown use test city, otherwise use closest city
+				string city = currentLocation == null ? TouristAttractionsHelper.TestCity :
+						TouristAttractionsHelper.GetClosestCity(currentLocation);
+
+				ShowNotification(city,
+								 intent.GetBooleanExtra(extraTestMicroApp, Constants.UseMicroApp));
+			}
 		}
 
 		/**
-     * Add geofences using Play Services
-     */
+	     * Add geofences using Play Services
+	     */
 		private void AddGeofencesInternal()
 		{
 			Log.Verbose("UtilityService", actionAddGeoFences);

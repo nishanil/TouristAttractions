@@ -112,7 +112,7 @@ namespace ToursitAttractions.Droid.Shared
 			}
 
 			NumberFormat numberFormat = NumberFormat.NumberInstance;
-			double distance = 0.0; //TODO: //  Math.Round(SphericalUtil.computeDistanceBetween(point1, point2));
+			double distance =  Math.Round(ComputeDistanceBetween(point1, point2));
 
 			// Adjust to KM if M goes over 1000 (see javadoc of method for note
 			// on only supporting metric)
@@ -124,6 +124,20 @@ namespace ToursitAttractions.Droid.Shared
 			return numberFormat.Format(distance) + DISTANCE_M_POSTFIX;
 		}
 
+
+		// Use spherical law of cosines
+		public static double ComputeDistanceBetween(LatLng p1, LatLng p2)
+		{
+			const int EarthRadius = 6371;
+			return Math.Acos(Math.Sin(DegToRad(p1.Latitude)) * Math.Sin(DegToRad(p2.Latitude)) +
+			                 Math.Cos(DegToRad(p1.Latitude)) * Math.Cos(DegToRad(p2.Latitude)) *
+			                 Math.Cos(DegToRad(p2.Longitude) - DegToRad(p1.Longitude))) * EarthRadius;
+		}
+
+		static double DegToRad(double deg)
+		{
+			return deg * Math.PI / 180;
+		}
 }
 }
 

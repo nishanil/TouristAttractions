@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Android.Gms.Location;
 using Android.Gms.Maps.Model;
 using Com.Google.Maps.Android;
-
+using ToursitAttractions.Droid.Shared;
 
 namespace TouristAttractions
 {
@@ -59,6 +59,17 @@ namespace TouristAttractions
 			cityLocations.Add(citySydney, new LatLng(-33.873651, 151.2068896));
 
 			var attaractions = new List<Attraction>();
+
+			attaractions.Add(new Attraction()
+			{
+				Name = "Boston Common",
+				Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae bibendum justo, vitae cursus velit. Suspendisse potenti.",
+				LongDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae bibendum justo, vitae cursus velit. Suspendisse potenti. Suspendisse scelerisque risus justo, non tincidunt nibh blandit et. Vivamus elit lacus, luctus nec erat in, pharetra semper turpis. Quisque viverra nulla ligula, non pulvinar ante dictum sit amet. Vestibulum aliquet tortor mauris, vel suscipit nisl malesuada eget. Aliquam maximus dictum euismod. Maecenas leo quam, volutpat id diam eget, placerat fringilla ipsum. Nam pretium vehicula augue quis euismod.\n\nNam sed blandit magna. Vestibulum a fermentum arcu. Vestibulum et ligula at nisi luctus facilisis. Proin fermentum enim a nibh commodo finibus. Suspendisse justo elit, vulputate ut ipsum at, pellentesque auctor massa. Praesent vestibulum erat interdum imperdiet dapibus. In hac habitasse platea dictumst. Proin varius orci vitae tempor vulputate.\n\nEtiam sed mollis orci. Integer et ex sed tortor scelerisque blandit semper id libero. Nulla facilisi. Pellentesque tempor magna eget massa ultrices, et efficitur lectus finibus.",
+				ImageUrl = new Uri("https://lh5.googleusercontent.com/-7fb5ybQhUbo/VGLWjIL4RmI/AAAAAAAAACM/2jLe_msj_tk/w600-no/IMG_0049.JPG"),
+				SecondaryImageUrl = new Uri("https://lh3.googleusercontent.com/-EFEw6s7mT6I/VGLkCH4Xt4I/AAAAAAAAADY/ZlznhaQvb8E/w600-no/DSC_2775.JPG"),
+				Location = new LatLng(42.3551128, -71.0677709),
+				City = "Boston"
+			});
 
 			/**
 			 * All photos used with permission under the Creative Commons Attribution-ShareAlike License.
@@ -150,15 +161,15 @@ namespace TouristAttractions
 
 			double minDistance = 0;
 			String closestCity = null;
-			foreach (var item in CityLocations.Values)
+			foreach (var item in CityLocations)
 			{
 				//TODO:
-				//double distance = SphericalUtil(curLatLng, item);
-				//if (minDistance == 0 || distance < minDistance)
-				//{
-				//	minDistance = distance;
-				//	closestCity = entry.getKey();
-				//}
+				double distance = Utils.ComputeDistanceBetween(curLatLng, item.Value);
+				if (minDistance == 0 || distance < minDistance)
+				{
+					minDistance = distance;
+					closestCity = item.Key;
+				}
 			}
 			return closestCity;
 		}

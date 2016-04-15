@@ -26,7 +26,8 @@ namespace TouristAttractions
 
 		public override Android.Animation.Animator OnDisappear(Android.Views.ViewGroup sceneRoot, Android.Views.View view, TransitionValues startValues, TransitionValues endValues)
 		{
-			return CreateAnimation(view, 1, 0);	}
+			return CreateAnimation(view, 1, 0);	
+		}
 
 		public Animator CreateAnimation(View view, float startScale, float endScale)
 		{

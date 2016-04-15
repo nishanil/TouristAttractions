@@ -48,7 +48,7 @@ namespace TouristAttractions
 		protected override void OnResume()
 		{
 			base.OnResume();
-			//UtilityService.RequestLocation(this);
+			UtilityService.RequestLocation(this);
 		}
 
 		public override bool OnCreateOptionsMenu(IMenu menu)
@@ -102,9 +102,9 @@ namespace TouristAttractions
 		/// <returns>The location permission granted.</returns>
 		private void FineLocationPermissionGranted()
 		{
-			//TODO:
-			//UtilityService.addGeofences(this);
-			//UtilityService.requestLocation(this);
+			
+			UtilityService.AddGeofences(this);
+			UtilityService.RequestLocation(this);
 		}
 
 		/// <summary>

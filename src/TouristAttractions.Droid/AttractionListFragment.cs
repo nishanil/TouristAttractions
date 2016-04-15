@@ -6,6 +6,7 @@ using Android.Content.Res;
 using Android.Gms.Maps.Model;
 using Android.Support.V4.App;
 using Android.Support.V7.Widget;
+using Android.Text;
 using Android.Views;
 using Android.Widget;
 using Com.Google.Maps.Android;
@@ -18,7 +19,7 @@ namespace TouristAttractions
 	public class AttractionListFragment : Android.Support.V4.App.Fragment
 	{
 		private AttractionAdapter adapter;
-		private LatLng latestLocation;
+		public static LatLng LatestLocation;
 		private int imageSize;
 		public static bool IsItemClicked;
 
@@ -27,8 +28,8 @@ namespace TouristAttractions
 		{
 			imageSize = Resources.GetDimensionPixelSize(Resource.Dimension.image_size)
 								 * Constants.ImageAnimMultiplier;
-			latestLocation = Utils.GetLocation(this.Activity);
-			var attractions = LoadAttractionsFromLocation(latestLocation);
+			LatestLocation = Utils.GetLocation(this.Activity);
+			var attractions = LoadAttractionsFromLocation(LatestLocation);
 			adapter = new AttractionAdapter(this.Activity, attractions);
 
 
@@ -38,7 +39,7 @@ namespace TouristAttractions
 			recyclerView.SetEmptyView(view.FindViewById(Android.Resource.Id.Empty));
 			recyclerView.HasFixedSize = true;
 			recyclerView.SetAdapter(adapter);
-			adapter.NotifyDataSetChanged();
+			//adapter.NotifyDataSetChanged();
 			return view;
 		}
 
@@ -140,13 +141,15 @@ namespace TouristAttractions
 			//		   .override(mImageSize, mImageSize)
 			//                  .into(holder.mImageView);
 			//TODO: Distance Utils
-			// String distance = //		Utils.formatDistanceBetween(mLatestLocation, attraction.location);
-			//          if (TextUtils.isEmpty(distance)) {
-			//              holder.mOverlayTextView.setVisibility(View.GONE);
-			//          } else {
-			//              holder.mOverlayTextView.setVisibility(View.VISIBLE);
-			//              holder.mOverlayTextView.setText(distance);
-			//          }
+			String distance =  Utils.FormatDistanceBetween(AttractionListFragment.LatestLocation, attraction.Location);
+			if (TextUtils.IsEmpty(distance))
+			{
+				viewHolder.OverlayTextView.Visibility = ViewStates.Gone;
+			}
+			else {
+				viewHolder.OverlayTextView.Visibility = ViewStates.Visible;
+				viewHolder.OverlayTextView.Text = distance;
+			}
 		}
 
 		public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)

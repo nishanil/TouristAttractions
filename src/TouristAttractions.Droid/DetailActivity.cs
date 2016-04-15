@@ -25,7 +25,7 @@ namespace TouristAttractions
 			Intent intent = GetLaunchIntent(activity, attraction);
 			if (Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.Lollipop)
 			{
-				ActivityOptionsCompat options = ActivityOptionsCompat.MakeSceneTransitionAnimation(
+				var options = ActivityOptions.MakeSceneTransitionAnimation(
 					activity, heroView, heroView.TransitionName);
 				ActivityCompat.StartActivity(activity, intent, options.ToBundle());
 			}
