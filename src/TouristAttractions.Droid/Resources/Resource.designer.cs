@@ -37,9 +37,13 @@ namespace TouristAttractions
 			global::ToursitAttractions.Droid.Shared.Resource.Attribute.colorScheme = global::TouristAttractions.Resource.Attribute.colorScheme;
 			global::ToursitAttractions.Droid.Shared.Resource.Attribute.imageAspectRatio = global::TouristAttractions.Resource.Attribute.imageAspectRatio;
 			global::ToursitAttractions.Droid.Shared.Resource.Attribute.imageAspectRatioAdjust = global::TouristAttractions.Resource.Attribute.imageAspectRatioAdjust;
+			global::ToursitAttractions.Droid.Shared.Resource.Attribute.layoutManager = global::TouristAttractions.Resource.Attribute.layoutManager;
 			global::ToursitAttractions.Droid.Shared.Resource.Attribute.liteMode = global::TouristAttractions.Resource.Attribute.liteMode;
 			global::ToursitAttractions.Droid.Shared.Resource.Attribute.mapType = global::TouristAttractions.Resource.Attribute.mapType;
+			global::ToursitAttractions.Droid.Shared.Resource.Attribute.reverseLayout = global::TouristAttractions.Resource.Attribute.reverseLayout;
 			global::ToursitAttractions.Droid.Shared.Resource.Attribute.scopeUris = global::TouristAttractions.Resource.Attribute.scopeUris;
+			global::ToursitAttractions.Droid.Shared.Resource.Attribute.spanCount = global::TouristAttractions.Resource.Attribute.spanCount;
+			global::ToursitAttractions.Droid.Shared.Resource.Attribute.stackFromEnd = global::TouristAttractions.Resource.Attribute.stackFromEnd;
 			global::ToursitAttractions.Droid.Shared.Resource.Attribute.uiCompass = global::TouristAttractions.Resource.Attribute.uiCompass;
 			global::ToursitAttractions.Droid.Shared.Resource.Attribute.uiMapToolbar = global::TouristAttractions.Resource.Attribute.uiMapToolbar;
 			global::ToursitAttractions.Droid.Shared.Resource.Attribute.uiRotateGestures = global::TouristAttractions.Resource.Attribute.uiRotateGestures;
@@ -80,6 +84,7 @@ namespace TouristAttractions
 			global::ToursitAttractions.Droid.Shared.Resource.Color.place_autocomplete_search_hint = global::TouristAttractions.Resource.Color.place_autocomplete_search_hint;
 			global::ToursitAttractions.Droid.Shared.Resource.Color.place_autocomplete_search_text = global::TouristAttractions.Resource.Color.place_autocomplete_search_text;
 			global::ToursitAttractions.Droid.Shared.Resource.Color.place_autocomplete_separator = global::TouristAttractions.Resource.Color.place_autocomplete_separator;
+			global::ToursitAttractions.Droid.Shared.Resource.Dimension.item_touch_helper_max_drag_scroll_per_frame = global::TouristAttractions.Resource.Dimension.item_touch_helper_max_drag_scroll_per_frame;
 			global::ToursitAttractions.Droid.Shared.Resource.Dimension.place_autocomplete_button_padding = global::TouristAttractions.Resource.Dimension.place_autocomplete_button_padding;
 			global::ToursitAttractions.Droid.Shared.Resource.Dimension.place_autocomplete_powered_by_google_height = global::TouristAttractions.Resource.Dimension.place_autocomplete_powered_by_google_height;
 			global::ToursitAttractions.Droid.Shared.Resource.Dimension.place_autocomplete_powered_by_google_start = global::TouristAttractions.Resource.Dimension.place_autocomplete_powered_by_google_start;
@@ -144,6 +149,7 @@ namespace TouristAttractions
 			global::ToursitAttractions.Droid.Shared.Resource.Id.dark = global::TouristAttractions.Resource.Id.dark;
 			global::ToursitAttractions.Droid.Shared.Resource.Id.hybrid = global::TouristAttractions.Resource.Id.hybrid;
 			global::ToursitAttractions.Droid.Shared.Resource.Id.icon_only = global::TouristAttractions.Resource.Id.icon_only;
+			global::ToursitAttractions.Droid.Shared.Resource.Id.item_touch_helper_previous_elevation = global::TouristAttractions.Resource.Id.item_touch_helper_previous_elevation;
 			global::ToursitAttractions.Droid.Shared.Resource.Id.light = global::TouristAttractions.Resource.Id.light;
 			global::ToursitAttractions.Droid.Shared.Resource.Id.none = global::TouristAttractions.Resource.Id.none;
 			global::ToursitAttractions.Droid.Shared.Resource.Id.normal = global::TouristAttractions.Resource.Id.normal;
@@ -247,6 +253,12 @@ namespace TouristAttractions
 			global::ToursitAttractions.Droid.Shared.Resource.Styleable.MapAttrs_uiZoomGestures = global::TouristAttractions.Resource.Styleable.MapAttrs_uiZoomGestures;
 			global::ToursitAttractions.Droid.Shared.Resource.Styleable.MapAttrs_useViewLifecycle = global::TouristAttractions.Resource.Styleable.MapAttrs_useViewLifecycle;
 			global::ToursitAttractions.Droid.Shared.Resource.Styleable.MapAttrs_zOrderOnTop = global::TouristAttractions.Resource.Styleable.MapAttrs_zOrderOnTop;
+			global::ToursitAttractions.Droid.Shared.Resource.Styleable.RecyclerView = global::TouristAttractions.Resource.Styleable.RecyclerView;
+			global::ToursitAttractions.Droid.Shared.Resource.Styleable.RecyclerView_android_orientation = global::TouristAttractions.Resource.Styleable.RecyclerView_android_orientation;
+			global::ToursitAttractions.Droid.Shared.Resource.Styleable.RecyclerView_layoutManager = global::TouristAttractions.Resource.Styleable.RecyclerView_layoutManager;
+			global::ToursitAttractions.Droid.Shared.Resource.Styleable.RecyclerView_reverseLayout = global::TouristAttractions.Resource.Styleable.RecyclerView_reverseLayout;
+			global::ToursitAttractions.Droid.Shared.Resource.Styleable.RecyclerView_spanCount = global::TouristAttractions.Resource.Styleable.RecyclerView_spanCount;
+			global::ToursitAttractions.Droid.Shared.Resource.Styleable.RecyclerView_stackFromEnd = global::TouristAttractions.Resource.Styleable.RecyclerView_stackFromEnd;
 			global::ToursitAttractions.Droid.Shared.Resource.Styleable.SignInButton = global::TouristAttractions.Resource.Styleable.SignInButton;
 			global::ToursitAttractions.Droid.Shared.Resource.Styleable.SignInButton_buttonSize = global::TouristAttractions.Resource.Styleable.SignInButton_buttonSize;
 			global::ToursitAttractions.Droid.Shared.Resource.Styleable.SignInButton_colorScheme = global::TouristAttractions.Resource.Styleable.SignInButton_colorScheme;

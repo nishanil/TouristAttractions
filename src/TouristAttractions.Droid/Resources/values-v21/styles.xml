@@ -19,11 +19,11 @@
     <style name="XYZAppTheme" parent="XYZAppTheme.Base">
 
 		<item name="android:windowContentTransitions">true</item>
-        <item name="android:windowActivityTransitions">true</item>
+	     <item name="android:windowActivityTransitions">true</item>
 		
       <item name="android:windowExitTransition">@transition/fade</item>
         <item name="android:windowReenterTransition">@transition/fade</item>
-        <item name="android:windowEnterTransition">@transition/window_enter</item>
+       <item name="android:windowEnterTransition">@transition/window_enter</item>
         <item name="android:windowReturnTransition">@transition/window_return</item>
         <item name="android:windowSharedElementEnterTransition">@transition/shared_move</item>
         <item name="android:windowSharedElementExitTransition">@transition/shared_move</item>
@@ -32,7 +32,7 @@
         <item name="android:windowAllowEnterTransitionOverlap">false</item>
         <item name="android:windowAllowReturnTransitionOverlap">false</item>
         <item name="android:windowSharedElementsUseOverlay">false</item>
-		
+
     </style>
 
 </resources>

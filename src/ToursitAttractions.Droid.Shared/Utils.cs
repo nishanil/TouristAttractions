@@ -1,8 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Android;
 using Android.Content;
 using Android.Content.PM;
+using Android.Gms.Common.Apis;
 using Android.Gms.Maps.Model;
+using Android.Gms.Wearable;
 using Android.Preferences;
 using Android.Support.V4.Content;
 using Java.Text;
@@ -15,8 +19,9 @@ namespace ToursitAttractions.Droid.Shared
 
 		private static readonly string DISTANCE_KM_POSTFIX = "km";
 		private static readonly string DISTANCE_M_POSTFIX = "m";
+		private static readonly string PREFERENCES_GEOFENCE_ENABLED = "geofence";
 		private static readonly string preferencesLat = "lat";
-		private static readonly String preferencesLang = "lng";
+		private static readonly string preferencesLang = "lng";
 
 		/// <summary>
 		/// Check if the app has access to fine location permission. On pre-M devices this will always return true.
@@ -28,6 +33,12 @@ namespace ToursitAttractions.Droid.Shared
 			const string permissionStr = Manifest.Permission.AccessFineLocation;
 			var permission = ContextCompat.CheckSelfPermission(context, permissionStr);
 			return (permission == Permission.Granted);
+		}
+
+		public static bool GetGeofenceEnabled(Context context)
+		{
+			var prefs = PreferenceManager.GetDefaultSharedPreferences(context);
+			return prefs.GetBoolean(PREFERENCES_GEOFENCE_ENABLED, true);
 		}
 
 		/// <summary>
@@ -69,6 +80,21 @@ namespace ToursitAttractions.Droid.Shared
 			return null;
 		}
 
+		/**
+ * Get a list of all wearable nodes that are connected synchronously.
+ * Only call this method from a background thread (it should never be
+ * called from the main/UI thread as it blocks).
+ */
+		public static async Task<List<string>> GetNodes(GoogleApiClient client)
+		{
+			var localNodes = new List<string>();
+			var connectedNodes = await WearableClass.NodeApi.GetConnectedNodesAsync(client);
+			foreach (var item in connectedNodes.Nodes)
+			{
+				localNodes.Add(item.Id);
+			}
+			return localNodes;
+		}
 
 		/// <summary>
 		/// Calculate distance between two LatLng points and format it nicely for  display.
@@ -98,6 +124,6 @@ namespace ToursitAttractions.Droid.Shared
 			return numberFormat.Format(distance) + DISTANCE_M_POSTFIX;
 		}
 
-	}
+}
 }
 

@@ -7,7 +7,7 @@ namespace ToursitAttractions.Droid.Shared
 
 		public static readonly int GOOGLE_API_CLIENT_TIMEOUT_S = 10; // 10 seconds
 		public static readonly string GOOGLE_API_CLIENT_ERROR_MSG =
-			"Failed to connect to GoogleApiClient (error code = %d)";
+			"Failed to connect to GoogleApiClient (error code = {0})";
 
 		// Used to size the images in the mobile app so they can animate cleanly from list to detail
 		public static readonly int ImageAnimMultiplier = 2;

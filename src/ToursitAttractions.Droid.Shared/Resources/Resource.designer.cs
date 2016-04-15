@@ -30,8 +30,8 @@ namespace ToursitAttractions.Droid.Shared
 			// aapt resource value: 0x7f010010
 			public static int ambientEnabled = 2130771984;
 			
-			// aapt resource value: 0x7f010011
-			public static int buttonSize = 2130771985;
+			// aapt resource value: 0x7f010015
+			public static int buttonSize = 2130771989;
 			
 			// aapt resource value: 0x7f010001
 			public static int cameraBearing = 2130771969;
@@ -48,17 +48,20 @@ namespace ToursitAttractions.Droid.Shared
 			// aapt resource value: 0x7f010005
 			public static int cameraZoom = 2130771973;
 			
+			// aapt resource value: 0x7f01001a
+			public static int circleCrop = 2130771994;
+			
 			// aapt resource value: 0x7f010016
-			public static int circleCrop = 2130771990;
+			public static int colorScheme = 2130771990;
 			
-			// aapt resource value: 0x7f010012
-			public static int colorScheme = 2130771986;
+			// aapt resource value: 0x7f010019
+			public static int imageAspectRatio = 2130771993;
 			
-			// aapt resource value: 0x7f010015
-			public static int imageAspectRatio = 2130771989;
+			// aapt resource value: 0x7f010018
+			public static int imageAspectRatioAdjust = 2130771992;
 			
-			// aapt resource value: 0x7f010014
-			public static int imageAspectRatioAdjust = 2130771988;
+			// aapt resource value: 0x7f010011
+			public static int layoutManager = 2130771985;
 			
 			// aapt resource value: 0x7f010006
 			public static int liteMode = 2130771974;
@@ -67,7 +70,16 @@ namespace ToursitAttractions.Droid.Shared
 			public static int mapType = 2130771968;
 			
 			// aapt resource value: 0x7f010013
-			public static int scopeUris = 2130771987;
+			public static int reverseLayout = 2130771987;
+			
+			// aapt resource value: 0x7f010017
+			public static int scopeUris = 2130771991;
+			
+			// aapt resource value: 0x7f010012
+			public static int spanCount = 2130771986;
+			
+			// aapt resource value: 0x7f010014
+			public static int stackFromEnd = 2130771988;
 			
 			// aapt resource value: 0x7f010007
 			public static int uiCompass = 2130771975;
@@ -214,6 +226,9 @@ namespace ToursitAttractions.Droid.Shared
 		
 		public partial class Dimension
 		{
+			
+			// aapt resource value: 0x7f06000a
+			public static int item_touch_helper_max_drag_scroll_per_frame = 2131099658;
 			
 			// aapt resource value: 0x7f060000
 			public static int place_autocomplete_button_padding = 2131099648;
@@ -415,77 +430,80 @@ namespace ToursitAttractions.Droid.Shared
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f09000c
-			public static int adjust_height = 2131296268;
+			// aapt resource value: 0x7f08000d
+			public static int adjust_height = 2131230733;
 			
-			// aapt resource value: 0x7f09000d
-			public static int adjust_width = 2131296269;
+			// aapt resource value: 0x7f08000e
+			public static int adjust_width = 2131230734;
 			
-			// aapt resource value: 0x7f090009
-			public static int auto = 2131296265;
+			// aapt resource value: 0x7f08000a
+			public static int auto = 2131230730;
 			
-			// aapt resource value: 0x7f09000a
-			public static int dark = 2131296266;
+			// aapt resource value: 0x7f08000b
+			public static int dark = 2131230731;
 			
-			// aapt resource value: 0x7f090001
-			public static int hybrid = 2131296257;
+			// aapt resource value: 0x7f080002
+			public static int hybrid = 2131230722;
 			
-			// aapt resource value: 0x7f090006
-			public static int icon_only = 2131296262;
+			// aapt resource value: 0x7f080007
+			public static int icon_only = 2131230727;
 			
-			// aapt resource value: 0x7f09000b
-			public static int light = 2131296267;
+			// aapt resource value: 0x7f080000
+			public static int item_touch_helper_previous_elevation = 2131230720;
 			
-			// aapt resource value: 0x7f090002
-			public static int none = 2131296258;
+			// aapt resource value: 0x7f08000c
+			public static int light = 2131230732;
 			
-			// aapt resource value: 0x7f090003
-			public static int normal = 2131296259;
+			// aapt resource value: 0x7f080003
+			public static int none = 2131230723;
 			
-			// aapt resource value: 0x7f090011
-			public static int place_autocomplete_clear_button = 2131296273;
+			// aapt resource value: 0x7f080004
+			public static int normal = 2131230724;
 			
-			// aapt resource value: 0x7f090013
-			public static int place_autocomplete_powered_by_google = 2131296275;
+			// aapt resource value: 0x7f080012
+			public static int place_autocomplete_clear_button = 2131230738;
 			
-			// aapt resource value: 0x7f090015
-			public static int place_autocomplete_prediction_primary_text = 2131296277;
+			// aapt resource value: 0x7f080014
+			public static int place_autocomplete_powered_by_google = 2131230740;
 			
-			// aapt resource value: 0x7f090016
-			public static int place_autocomplete_prediction_secondary_text = 2131296278;
+			// aapt resource value: 0x7f080016
+			public static int place_autocomplete_prediction_primary_text = 2131230742;
 			
-			// aapt resource value: 0x7f090014
-			public static int place_autocomplete_progress = 2131296276;
+			// aapt resource value: 0x7f080017
+			public static int place_autocomplete_prediction_secondary_text = 2131230743;
 			
-			// aapt resource value: 0x7f09000f
-			public static int place_autocomplete_search_button = 2131296271;
+			// aapt resource value: 0x7f080015
+			public static int place_autocomplete_progress = 2131230741;
 			
-			// aapt resource value: 0x7f090010
-			public static int place_autocomplete_search_input = 2131296272;
+			// aapt resource value: 0x7f080010
+			public static int place_autocomplete_search_button = 2131230736;
 			
-			// aapt resource value: 0x7f090012
-			public static int place_autocomplete_separator = 2131296274;
+			// aapt resource value: 0x7f080011
+			public static int place_autocomplete_search_input = 2131230737;
 			
-			// aapt resource value: 0x7f090004
-			public static int satellite = 2131296260;
+			// aapt resource value: 0x7f080013
+			public static int place_autocomplete_separator = 2131230739;
 			
-			// aapt resource value: 0x7f090007
-			public static int standard = 2131296263;
+			// aapt resource value: 0x7f080005
+			public static int satellite = 2131230725;
 			
-			// aapt resource value: 0x7f090005
-			public static int terrain = 2131296261;
+			// aapt resource value: 0x7f080008
+			public static int standard = 2131230728;
 			
-			// aapt resource value: 0x7f090000
-			public static int text = 2131296256;
+			// aapt resource value: 0x7f080006
+			public static int terrain = 2131230726;
 			
-			// aapt resource value: 0x7f090017
-			public static int webview = 2131296279;
+			// aapt resource value: 0x7f080001
+			public static int text = 2131230721;
 			
-			// aapt resource value: 0x7f090008
-			public static int wide = 2131296264;
+			// aapt resource value: 0x7f080018
+			public static int webview = 2131230744;
 			
-			// aapt resource value: 0x7f09000e
-			public static int window = 2131296270;
+			// aapt resource value: 0x7f080009
+			public static int wide = 2131230729;
+			
+			// aapt resource value: 0x7f08000f
+			public static int window = 2131230735;
 			
 			static Id()
 			{
@@ -500,8 +518,8 @@ namespace ToursitAttractions.Droid.Shared
 		public partial class Integer
 		{
 			
-			// aapt resource value: 0x7f080000
-			public static int google_play_services_version = 2131230720;
+			// aapt resource value: 0x7f090000
+			public static int google_play_services_version = 2131296256;
 			
 			static Integer()
 			{
@@ -756,9 +774,9 @@ namespace ToursitAttractions.Droid.Shared
 			
 			public static int[] LoadingImageView = new int[]
 			{
-					2130771988,
-					2130771989,
-					2130771990};
+					2130771992,
+					2130771993,
+					2130771994};
 			
 			// aapt resource value: 2
 			public static int LoadingImageView_circleCrop = 2;
@@ -840,11 +858,34 @@ namespace ToursitAttractions.Droid.Shared
 			// aapt resource value: 14
 			public static int MapAttrs_zOrderOnTop = 14;
 			
-			public static int[] SignInButton = new int[]
+			public static int[] RecyclerView = new int[]
 			{
+					16842948,
 					2130771985,
 					2130771986,
-					2130771987};
+					2130771987,
+					2130771988};
+			
+			// aapt resource value: 0
+			public static int RecyclerView_android_orientation = 0;
+			
+			// aapt resource value: 1
+			public static int RecyclerView_layoutManager = 1;
+			
+			// aapt resource value: 3
+			public static int RecyclerView_reverseLayout = 3;
+			
+			// aapt resource value: 2
+			public static int RecyclerView_spanCount = 2;
+			
+			// aapt resource value: 4
+			public static int RecyclerView_stackFromEnd = 4;
+			
+			public static int[] SignInButton = new int[]
+			{
+					2130771989,
+					2130771990,
+					2130771991};
 			
 			// aapt resource value: 0
 			public static int SignInButton_buttonSize = 0;

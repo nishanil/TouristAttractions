@@ -11,7 +11,7 @@ using Android.Widget;
 using Com.Google.Maps.Android;
 using ToursitAttractions;
 using ToursitAttractions.Droid.Shared;
-using static ToursitAttractions.TouristAttractionsHelper;
+using static TouristAttractions.TouristAttractionsHelper;
 
 namespace TouristAttractions
 {
@@ -162,7 +162,7 @@ namespace TouristAttractions
 			if (!AttractionListFragment.IsItemClicked)
 			{
 				AttractionListFragment.IsItemClicked = true;
-				var heroView = view.FindViewById(Android.Resource.Id.Icon);
+				var heroView = view.FindViewById<ImageView>(Android.Resource.Id.Icon);
 				DetailActivity.Launch(
 					(Activity)context, attractions[position].Name, heroView);
 			}

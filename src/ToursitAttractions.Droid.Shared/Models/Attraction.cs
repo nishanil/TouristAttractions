@@ -2,7 +2,7 @@
 using Android.Gms.Maps.Model;
 using Android.Graphics;
 
-namespace ToursitAttractions
+namespace TouristAttractions
 {
 	public class Attraction
 	{

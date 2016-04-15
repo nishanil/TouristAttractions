@@ -19,11 +19,6 @@ namespace TouristAttractions
 			
 		}
 
-		public ScaleTransition()
-		{
-
-		}
-
 		public override Android.Animation.Animator OnAppear(Android.Views.ViewGroup sceneRoot, Android.Views.View view, TransitionValues startValues, TransitionValues endValues)
 		{
 			return CreateAnimation(view, 0, 1);
