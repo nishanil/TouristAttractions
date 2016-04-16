@@ -41,6 +41,14 @@ namespace ToursitAttractions.Droid.Shared
 			return prefs.GetBoolean(PREFERENCES_GEOFENCE_ENABLED, true);
 		}
 
+		public static void StoreGeofenceEnabled(Context context, bool enable)
+		{
+			var prefs = PreferenceManager.GetDefaultSharedPreferences(context);
+			var editor = prefs.Edit();
+			editor.PutBoolean(PREFERENCES_GEOFENCE_ENABLED, enable);
+			editor.Apply();
+		}
+
 		/// <summary>
 		/// Store the location in the app preferences.
 		/// </summary>

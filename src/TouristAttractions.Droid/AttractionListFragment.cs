@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using Android.App;
 using Android.Content;
 using Android.Content.Res;
+using Android.Gms.Location;
 using Android.Gms.Maps.Model;
+using Android.Locations;
 using Android.Support.V4.App;
+using Android.Support.V4.Content;
 using Android.Support.V7.Widget;
 using Android.Text;
 using Android.Views;
@@ -22,7 +25,7 @@ namespace TouristAttractions
 		public static LatLng LatestLocation;
 		private int imageSize;
 		public static bool IsItemClicked;
-
+		private AttractionBroadcastReceiver attractionReceiver = new AttractionBroadcastReceiver();
 
 		public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Android.OS.Bundle savedInstanceState)
 		{
@@ -48,6 +51,7 @@ namespace TouristAttractions
 			//TODO:
 			IsItemClicked = false;
 			base.OnResume();
+			LocalBroadcastManager.GetInstance(this.Activity).RegisterReceiver(attractionReceiver, UtilityService.GetLocationUpdatedIntentFilter());
 
 
 		}
@@ -55,6 +59,8 @@ namespace TouristAttractions
 		{
 			//TODO:
 			base.OnPause();
+			LocalBroadcastManager.GetInstance(this.Activity).UnregisterReceiver(attractionReceiver);
+
 		}
 
 		private List<Attraction> LoadAttractionsFromLocation(LatLng curLatLng)
@@ -244,6 +250,17 @@ namespace TouristAttractions
 		}
 
 	}
+
+	public class AttractionBroadcastReceiver : BroadcastReceiver
+	{
+		public override void OnReceive(Context context, Intent intent)
+		{
+			//throw new NotImplementedException();
+	
+		}
+	}
+
+
 }
 
 

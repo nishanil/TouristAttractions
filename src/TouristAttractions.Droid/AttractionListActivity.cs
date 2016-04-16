@@ -60,6 +60,17 @@ namespace TouristAttractions
 		public override bool OnOptionsItemSelected(IMenuItem item)
 		{
 			//TODO: 
+			switch (item.ItemId)
+			{
+				case Resource.Id.test_toggle_geofence:
+					var isGeoFenceEnabled = Utils.GetGeofenceEnabled(this);
+					Utils.StoreGeofenceEnabled(this, !isGeoFenceEnabled);
+					Toast.MakeText(this, isGeoFenceEnabled ?
+						"Debug: Geofencing trigger disabled" :
+					               "Debug: Geofencing trigger enabled", ToastLength.Short).Show();
+					return true;
+
+			}
 			return base.OnOptionsItemSelected(item);
 		}
 

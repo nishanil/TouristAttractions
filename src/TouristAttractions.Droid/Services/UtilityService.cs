@@ -24,7 +24,7 @@ namespace TouristAttractions
 	///  operations that do not necessarily need to be tied to a UI.
 	/// </summary>
 	[Service]
-	[IntentFilter(new String[] { "com.nnish.TouristAttractions.UtilityService" })]
+	[IntentFilter(new String[] { "com.nnish.UtilityService" })]
 	public class UtilityService : IntentService
 	{
 		public static readonly string ActionGeofenceTriggered = "geofence_triggered";
@@ -126,7 +126,7 @@ namespace TouristAttractions
 		/**
 	     * Add geofences using Play Services
 	     */
-		private void AddGeofencesInternal()
+		private async void AddGeofencesInternal()
 		{
 			Log.Verbose("UtilityService", actionAddGeoFences);
 
@@ -151,8 +151,9 @@ namespace TouristAttractions
 
 				//TODO: Move to new api
 
-				LocationServices.GeofencingApi.AddGeofences(googleApiClient,
+				var status = await LocationServices.GeofencingApi.AddGeofencesAsync(googleApiClient,
 											TouristAttractionsHelper.GetGeofenceList(), pendingIntent);
+				
 				googleApiClient.Disconnect();
 			}
 			else {

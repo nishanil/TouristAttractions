@@ -1,13 +1,19 @@
 ﻿using System;
+using Android.App;
 using Android.Content;
 using Android.Support.V4.Content;
 
 namespace TouristAttractions
 {
-	[BroadcastReceiver]
+	[BroadcastReceiver(Enabled = true)]
+	//[IntentFilter(new[] { "com.nnish.TouristAttractions.UtilityReceiver" })]
 	public class UtilityReceiver : WakefulBroadcastReceiver
 	{
-		
+		public UtilityReceiver()
+		{
+
+		}
+
 		public override void OnReceive(Context context, Intent intent)
 		{
 			// Pass right over to UtilityService class, the wakeful receiver is
