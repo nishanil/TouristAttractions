@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Android.Gms.Location;
 using Android.Gms.Maps.Model;
-using Com.Google.Maps.Android;
 using ToursitAttractions.Droid.Shared;
 
 namespace TouristAttractions

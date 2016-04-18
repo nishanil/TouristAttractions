@@ -163,10 +163,6 @@
       <Project>{B887498B-E16F-4734-8D67-3CD26341B0CA}</Project>
       <Name>ToursitAttractions.Droid.Shared</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Xamarin.Android.Maps.Utils\GoogleMapsUtilityBinding.csproj">
-      <Project>{BC829F65-B3B0-43C3-A282-FD5497656434}</Project>
-      <Name>GoogleMapsUtilityBinding</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />

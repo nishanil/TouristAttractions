@@ -3,17 +3,12 @@ using System.Collections.Generic;
 using Android.App;
 using Android.Content;
 using Android.Content.Res;
-using Android.Gms.Location;
 using Android.Gms.Maps.Model;
-using Android.Locations;
-using Android.Support.V4.App;
 using Android.Support.V4.Content;
 using Android.Support.V7.Widget;
 using Android.Text;
 using Android.Views;
 using Android.Widget;
-using Com.Google.Maps.Android;
-using ToursitAttractions;
 using ToursitAttractions.Droid.Shared;
 using static TouristAttractions.TouristAttractionsHelper;
 
