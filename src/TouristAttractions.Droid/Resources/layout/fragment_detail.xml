@@ -57,6 +57,13 @@
                 android:paddingStart="@dimen/keyline2"
                 android:paddingEnd="@dimen/keyline3" />
         </ScrollView>
+        <Button
+            android:id="@+id/checkinButton"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:text="Check-in here" />
     </LinearLayout>
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/mapFab"

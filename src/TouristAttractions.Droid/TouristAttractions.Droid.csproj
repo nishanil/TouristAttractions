@@ -93,6 +93,9 @@
     <Compile Include="DetailFragment.cs" />
     <Compile Include="ScaleTransition.cs" />
     <Compile Include="Services\UtilityReceiver.cs" />
+    <Compile Include="FingerPrint\FingerprintUiHelper.cs" />
+    <Compile Include="FingerPrint\FingerprintAuthenticationDialogFragment.cs" />
+    <Compile Include="FingerPrint\FingerprintModule.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
@@ -145,6 +148,15 @@
     <AndroidResource Include="Resources\transition-v21\shared_move.xml" />
     <AndroidResource Include="Resources\transition-v21\window_enter.xml" />
     <AndroidResource Include="Resources\transition-v21\window_return.xml" />
+    <AndroidResource Include="Resources\drawable\ic_fingerprint_error.xml" />
+    <AndroidResource Include="Resources\drawable\ic_fingerprint_success.xml" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_fp_40px.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_fp_40px.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_fp_40px.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_fp_40px.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_fp_40px.png" />
+    <AndroidResource Include="Resources\layout\fingerprint_dialog_content.xml" />
+    <AndroidResource Include="Resources\layout\fingerprint_dialog_container.xml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ToursitAttractions.Droid.Shared\ToursitAttractions.Droid.Shared.csproj">
@@ -158,6 +170,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />
+    <Folder Include="Resources\drawable\" />
+    <Folder Include="Resources\drawable-xxxhdpi\" />
+    <Folder Include="FingerPrint\" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="urlimageviewhelper">

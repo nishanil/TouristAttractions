@@ -1,29 +1,22 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
+﻿using Android.Content;
 using Android.OS;
-using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.Support.V4.App;
-using Android.Support.V7.Widget;
-using ToursitAttractions;
 using static TouristAttractions.TouristAttractionsHelper;
 using Android.Support.Design.Widget;
 using Android.Gms.Maps.Model;
 using ToursitAttractions.Droid.Shared;
+using Android.Hardware.Fingerprints;
 
 namespace TouristAttractions
 {
-	public class DetailFragment : Android.Support.V4.App.Fragment
+	public class DetailFragment : Fragment
 	{
 		private static readonly string ExtraAttraction = "attraction";
     	private Attraction attraction;
+
+
 
 		public static DetailFragment CreateInstance(string attractionName)
 		{
@@ -53,6 +46,18 @@ namespace TouristAttractions
 			var distanceTextView = view.FindViewById<TextView>(Resource.Id.distanceTextView);
 			var imageView = view.FindViewById<ImageView>(Resource.Id.imageView);
 			var mapFab = view.FindViewById<FloatingActionButton>(Resource.Id.mapFab);
+
+			var checkInButton = view.FindViewById<Button>(Resource.Id.checkinButton);
+
+			checkInButton.Click += (sender, e) => {
+				var detailActivity = (DetailActivity)Activity;
+				if (detailActivity.IsFingerPrintReady && detailActivity.InitCipher())
+				{
+					var fingerPrintFrag = new FingerprintAuthenticationDialogFragment();
+					fingerPrintFrag.SetCryptoObject(new FingerprintManager.CryptoObject(detailActivity.mCipher));
+					fingerPrintFrag.Show(FragmentManager, "my_frag");
+				}
+			};
 
 			LatLng location = Utils.GetLocation(Activity);
 			//TODO:
@@ -87,6 +92,8 @@ namespace TouristAttractions
 													 Android.Net.Uri.Encode(attraction.Name + ", " + attraction.City)));
 				StartActivity(intent);
 			};
+
+
 			return view;
 		}
 
@@ -130,7 +137,7 @@ namespace TouristAttractions
      * Really hacky loop for finding attraction in our static content provider.
      * Obviously would not be used in a production app.
      */
-		private Attraction FindAttraction(String attractionName)
+		private Attraction FindAttraction(string attractionName)
 		{
 
 			//TODO: change to linq
@@ -147,6 +154,9 @@ namespace TouristAttractions
 			}
 			return null;
 		}
+
+
+
 	}
 }
 
