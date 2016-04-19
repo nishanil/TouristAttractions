@@ -14,6 +14,7 @@ using Android.Views;
 using Android.Widget;
 using Java.Security;
 using Javax.Crypto;
+using TouristAttractions.Portable;
 
 namespace TouristAttractions
 {
@@ -22,7 +23,6 @@ namespace TouristAttractions
 		FingerprintManager.CryptoObject mCryptoObject;
 		FingerprintUiHelper mFingerprintUiHelper;
 		View mFingerprintContent;
-
 
 		FingerprintUiHelper.FingerprintUiHelperBuilder mFingerprintUiHelperBuilder;
 		Button mCancelButton;
@@ -85,13 +85,21 @@ namespace TouristAttractions
 		}
 		public void OnAuthenticated()
 		{
+			var attraction = DetailFragment.Attraction;
+			new CheckinDataManager(App.DataConnection).SaveItem(new CheckinItem {
+				Time = DateTime.UtcNow,
+				Place = attraction.Name,
+				City = attraction.City
+			});
 			Toast.MakeText(Activity, "Check-in Success!", ToastLength.Short).Show();
 			Dismiss();
+
 		}
 
 		public void OnError()
 		{
 			mFingerprintUiHelper.StopListening();
+			Toast.MakeText(Activity, "Something went wrong! Try check-in after sometime.", ToastLength.Short).Show();
 
 			//TODO: Do Something during errror
 			Dismiss();

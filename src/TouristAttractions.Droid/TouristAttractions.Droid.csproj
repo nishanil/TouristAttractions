@@ -81,6 +81,9 @@
     <Reference Include="Xamarin.GooglePlayServices.Wearable">
       <HintPath>..\packages\Xamarin.GooglePlayServices.Wearable.29.0.0.1\lib\MonoAndroid41\Xamarin.GooglePlayServices.Wearable.dll</HintPath>
     </Reference>
+    <Reference Include="SQLite-net">
+      <HintPath>..\packages\sqlite-net-pcl.1.1.1\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLite-net.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AttractionListActivity.cs" />
@@ -96,6 +99,9 @@
     <Compile Include="FingerPrint\FingerprintUiHelper.cs" />
     <Compile Include="FingerPrint\FingerprintAuthenticationDialogFragment.cs" />
     <Compile Include="FingerPrint\FingerprintModule.cs" />
+    <Compile Include="Data\SQLiteDroid.cs" />
+    <Compile Include="App.cs" />
+    <Compile Include="CheckinsListActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
@@ -157,11 +163,16 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_fp_40px.png" />
     <AndroidResource Include="Resources\layout\fingerprint_dialog_content.xml" />
     <AndroidResource Include="Resources\layout\fingerprint_dialog_container.xml" />
+    <AndroidResource Include="Resources\layout\activity_checkins.axml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ToursitAttractions.Droid.Shared\ToursitAttractions.Droid.Shared.csproj">
       <Project>{B887498B-E16F-4734-8D67-3CD26341B0CA}</Project>
       <Name>ToursitAttractions.Droid.Shared</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TouristAttractions.Portable\TouristAttractions.Portable.csproj">
+      <Project>{E97A921D-6762-41E7-9568-F7A3D734BA0D}</Project>
+      <Name>TouristAttractions.Portable</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -169,6 +180,7 @@
     <Folder Include="Resources\drawable\" />
     <Folder Include="Resources\drawable-xxxhdpi\" />
     <Folder Include="FingerPrint\" />
+    <Folder Include="Data\" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="urlimageviewhelper">
@@ -178,4 +190,5 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Android.Support.Vector.Drawable.23.2.1\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Vector.Drawable.23.2.1\build\Xamarin.Android.Support.Vector.Drawable.targets')" />
+  <Import Project="..\packages\SQLitePCL.raw.0.8.6\build\MonoAndroid\SQLitePCL.raw.targets" Condition="Exists('..\packages\SQLitePCL.raw.0.8.6\build\MonoAndroid\SQLitePCL.raw.targets')" />
 </Project>

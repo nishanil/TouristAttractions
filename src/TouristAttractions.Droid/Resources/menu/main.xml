@@ -19,6 +19,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivity" >
 
+	    <item android:id="@+id/show_checkins"
+        android:title="Checkins"
+        android:orderInCategory="1"
+        app:showAsAction="ifRoom" />
+	
     <item android:id="@+id/test_notification"
         android:title="@string/action_test_notification"
         android:orderInCategory="100"

@@ -70,6 +70,10 @@ namespace TouristAttractions
 					               "Debug: Geofencing trigger enabled", ToastLength.Short).Show();
 					return true;
 
+				case Resource.Id.show_checkins:
+					StartActivity(typeof(CheckinsListActivity));
+					return true;
+
 			}
 			return base.OnOptionsItemSelected(item);
 		}

@@ -14,9 +14,20 @@ namespace TouristAttractions
 	public class DetailFragment : Fragment
 	{
 		private static readonly string ExtraAttraction = "attraction";
-    	private Attraction attraction;
+		private static Attraction attraction;
 
+		public static Attraction Attraction
+		{
+			get
+			{
+				return attraction;
+			}
 
+			set
+			{
+				attraction = value;
+			}
+		}
 
 		public static DetailFragment CreateInstance(string attractionName)
 		{
@@ -33,9 +44,9 @@ namespace TouristAttractions
 
 			var view = inflater.Inflate(Resource.Layout.fragment_detail, container, false);
 			var attractionName = Arguments.GetString(ExtraAttraction);
-			attraction = FindAttraction(attractionName);
+			Attraction = FindAttraction(attractionName);
 
-			if (attraction == null)
+			if (Attraction == null)
 			{
 				Activity.Finish();
 				return null;
@@ -70,9 +81,9 @@ namespace TouristAttractions
 
 			nameTextView.Text = attractionName;
 			distanceTextView.Text = distance;
-			descTextView.Text = attraction.LongDescription;
+			descTextView.Text = Attraction.LongDescription;
 
-			Koush.UrlImageViewHelper.SetUrlDrawable(imageView, attraction.ImageUrl.AbsoluteUri);
+			Koush.UrlImageViewHelper.SetUrlDrawable(imageView, Attraction.ImageUrl.AbsoluteUri);
 
 
 			//TODO: Glide
@@ -89,7 +100,7 @@ namespace TouristAttractions
 			mapFab.Click += (o,e)=> {
 				var intent = new Intent(Intent.ActionView);
 				intent.SetData(Android.Net.Uri.Parse(Constants.MapsIntentUri +
-													 Android.Net.Uri.Encode(attraction.Name + ", " + attraction.City)));
+													 Android.Net.Uri.Encode(Attraction.Name + ", " + Attraction.City)));
 				StartActivity(intent);
 			};
 
@@ -137,7 +148,7 @@ namespace TouristAttractions
      * Really hacky loop for finding attraction in our static content provider.
      * Obviously would not be used in a production app.
      */
-		private Attraction FindAttraction(string attractionName)
+		Attraction FindAttraction(string attractionName)
 		{
 
 			//TODO: change to linq
