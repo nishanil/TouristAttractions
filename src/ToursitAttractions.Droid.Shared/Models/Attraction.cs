@@ -1,11 +1,27 @@
 ﻿using System;
+using System.Collections;
 using Android.Gms.Maps.Model;
 using Android.Graphics;
 
 namespace TouristAttractions
 {
-	public class Attraction
+	public class Attraction : IComparable
 	{
+		private class AttractionComparer : IComparer
+		{
+			int IComparer.Compare(object a, object b)
+			{
+				Attraction a1 = (Attraction)a;
+				Attraction a2 = (Attraction)b;
+				if (a1.DistanceInMi > a2.DistanceInMi)
+					return 1;
+				if (a1.DistanceInMi < a2.DistanceInMi)
+					return -1;
+				else
+					return 0;
+			}
+		}
+
 		private string name;
 		private string description;
 		private string longDescription;
@@ -17,6 +33,14 @@ namespace TouristAttractions
 		private Bitmap image;
 		private Bitmap secondaryImage;
 		private String distance;
+
+		private double distanceInMi;
+
+		public double DistanceInMi
+		{
+			get { return distanceInMi; }
+			set { distanceInMi = value; }
+		}
 
 		public string Name
 		{
@@ -147,6 +171,21 @@ namespace TouristAttractions
 				distance = value;
 			}
 		}
+
+
+
+		public static IComparer SortByDistance()
+		{
+			return (IComparer)new AttractionComparer();
+		}
+
+		int IComparable.CompareTo(object obj)
+		{
+			Attraction a = (Attraction)obj;
+			return String.Compare(this.Name, a.Name);
+		}
+
 	}
+
 }
 

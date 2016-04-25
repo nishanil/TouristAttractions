@@ -67,13 +67,15 @@ namespace TouristAttractions
 					Utils.StoreGeofenceEnabled(this, !isGeoFenceEnabled);
 					Toast.MakeText(this, isGeoFenceEnabled ?
 						"Debug: Geofencing trigger disabled" :
-					               "Debug: Geofencing trigger enabled", ToastLength.Short).Show();
+								   "Debug: Geofencing trigger enabled", ToastLength.Short).Show();
 					return true;
 
 				case Resource.Id.show_checkins:
 					StartActivity(typeof(CheckinsListActivity));
 					return true;
-
+				case Resource.Id.test_notification:
+					UtilityService.TriggerWearTest(this, false);
+					return true;
 			}
 			return base.OnOptionsItemSelected(item);
 		}

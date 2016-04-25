@@ -343,6 +343,9 @@ namespace TouristAttractions
 					//				.diskCacheStrategy(DiskCacheStrategy.SOURCE)
 					//				.into(Constants.WEAR_IMAGE_SIZE, Constants.WEAR_IMAGE_SIZE)
 					//				.get());
+
+					var bm = Koush.UrlImageViewHelper.GetCachedBitmap(attractions[i].ImageUrl.AbsoluteUri);
+					bitmaps.Add(attractions[i].Name, bm);
 				}
 			}
 			catch (Exception e)

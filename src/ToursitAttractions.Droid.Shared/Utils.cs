@@ -112,6 +112,26 @@ namespace ToursitAttractions.Droid.Shared
 		/// <returns>The <see cref="T:System.String"/>.</returns>
 		/// <param name="point1">Point1.</param>
 		/// <param name="point2">Point2.</param>
+		//public static string FormatDistanceBetween(LatLng point1, LatLng point2)
+		//{
+		//	if (point1 == null || point2 == null)
+		//	{
+		//		return null;
+		//	}
+
+		//	NumberFormat numberFormat = NumberFormat.NumberInstance;
+		//	double distance =  Math.Round(ComputeDistanceBetween(point1, point2));
+
+		//	// Adjust to KM if M goes over 1000 (see javadoc of method for note
+		//	// on only supporting metric)
+		//	if (distance >= 1000)
+		//	{
+		//		numberFormat.MaximumFractionDigits = 1;
+		//		return numberFormat.Format(distance / 1000) + DISTANCE_KM_POSTFIX;
+		//	}
+		//	return numberFormat.Format(distance) + DISTANCE_M_POSTFIX;
+		//}
+		private static readonly string DISTANCE_MI_POSTFIX = "mi";
 		public static string FormatDistanceBetween(LatLng point1, LatLng point2)
 		{
 			if (point1 == null || point2 == null)
@@ -120,16 +140,20 @@ namespace ToursitAttractions.Droid.Shared
 			}
 
 			NumberFormat numberFormat = NumberFormat.NumberInstance;
-			double distance =  Math.Round(ComputeDistanceBetween(point1, point2));
+			double distance = Math.Round(ComputeDistanceBetween(point1, point2));
+
+			distance *= 0.621371192;
+			numberFormat.MaximumFractionDigits = 1;
 
 			// Adjust to KM if M goes over 1000 (see javadoc of method for note
 			// on only supporting metric)
-			if (distance >= 1000)
-			{
-				numberFormat.MaximumFractionDigits = 1;
-				return numberFormat.Format(distance / 1000) + DISTANCE_KM_POSTFIX;
-			}
-			return numberFormat.Format(distance) + DISTANCE_M_POSTFIX;
+
+			//			if (distance >= 1000)
+			//			{
+			//				numberFormat.MaximumFractionDigits = 1;
+			//				return numberFormat.Format(distance / 1000) + DISTANCE_KM_POSTFIX;
+			//			}
+			return numberFormat.Format(distance) + DISTANCE_MI_POSTFIX;
 		}
 
 

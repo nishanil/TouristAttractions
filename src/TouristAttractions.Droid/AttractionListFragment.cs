@@ -63,10 +63,28 @@ namespace TouristAttractions
 			string closestCity = GetClosestCity(curLatLng);
 			if (closestCity != null)
 			{
-				var attractions = Attractions[closestCity];
+				List<Attraction> attractions = Attractions[closestCity];
 
+				if (curLatLng != null)
+				{
+					var tempArray = attractions.ToArray();
+
+					foreach (var att in attractions)
+					{
+
+						double distance = Math.Round(Utils.ComputeDistanceBetween(curLatLng, att.Location));
+
+						distance *= 0.621371192;
+						att.DistanceInMi = distance;
+
+					}
+
+					Array.Sort(tempArray, Attraction.SortByDistance());
+					attractions = new List<Attraction>();
+					attractions.AddRange(tempArray);
+				}
 				//TODO: 
-							// if (curLatLng != null) {
+				// if (curLatLng != null) {
 				//			Collections.sort(attractions,
 				//					new Comparator<Attraction>() {
 				//						@Override
@@ -80,7 +98,7 @@ namespace TouristAttractions
 				//		return (int)(lhsDistance - rhsDistance);
 				//	}
 				//}
-			 //               );
+				//               );
 
 				return attractions;
 			}
